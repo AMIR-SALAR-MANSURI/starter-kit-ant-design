@@ -3,14 +3,17 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { Button, ConfigProvider, theme } from "antd";
+import { ConfigProvider, theme } from "antd";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ConfigProvider theme={theme}>
-      <App />
-    </ConfigProvider>
+    <BrowserRouter>
+      <ConfigProvider theme={theme}>
+        <App />
+      </ConfigProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

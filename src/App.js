@@ -1,9 +1,12 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Dashbord from "./components/dashboard";
+import { DashboardRoutes } from "./Routes/dashboard";
 
 function App() {
-  return <Dashbord />;
+  return (
+    <>
+      <DashboardRoutes />
+    </>
+  );
 }
 
 export default App;
