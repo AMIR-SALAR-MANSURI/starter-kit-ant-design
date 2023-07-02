@@ -1,5 +1,8 @@
-import { Button, Table } from "antd";
+import { Table } from "antd";
 import { useState } from "react";
+
+import React from "react";
+
 const columns = [
   {
     title: "Name",
@@ -23,7 +26,7 @@ for (let i = 0; i < 46; i++) {
     address: `London, Park Lane no. ${i}`,
   });
 }
-const ProcessCreate = () => {
+export default function ProcessCreate() {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [loading, setLoading] = useState(false);
   const start = () => {
@@ -69,10 +72,4 @@ const ProcessCreate = () => {
       <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
     </div>
   );
-};
-export default ProcessCreate;
-// .editable-row .ant-form-item-explain {
-//   position: absolute;
-//   top: 100%;
-//   font-size: 12px;
-// }
+}

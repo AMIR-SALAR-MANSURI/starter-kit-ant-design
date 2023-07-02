@@ -1,7 +1,5 @@
-import Dashboard from "../components/dashboard";
 import { Routes, Route } from "react-router-dom";
-import { theme } from "../units/theme";
-import ProcessCreate from "../components/process-create";
+import ProcessCreate from "../pages/process-create";
 
 const routes = [
   // { headName: "home", path: "/", element: <Dashboard /> },

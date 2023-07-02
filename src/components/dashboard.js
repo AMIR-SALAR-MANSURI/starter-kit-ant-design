@@ -1,65 +1,21 @@
-import {
-  MenuFoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-  MenuUnfoldOutlined,
-} from "@ant-design/icons";
-import { Button, Layout, Menu, theme } from "antd";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Layout, theme } from "antd";
+import Sidebar from "./sidebar";
+import HeaderApp from "./header-app";
 
-const { Header, Sider, Content } = Layout;
+const { Content } = Layout;
 
 const Dashboard = ({ children }) => {
-  const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
   return (
-    <Layout style={{ minHeight: "100vh", display: "flex" }}>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div
-          style={{
-            color: "white",
-            display: "flex",
-            justifyContent: "center",
-            marginTop: 50,
-          }}
-        ></div>
-        <div className="demo-logo-vertical" />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-          <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-            <Link to="/">dashboard</Link>
-          </Menu.Item>
-          <Menu.Item key="1" icon={<UserOutlined />}>
-            <Link to="/create">ProcessCreate</Link>
-          </Menu.Item>
-          {/* <Menu.Item key="3" icon={<UploadOutlined />}>
-            <Link to="/route3">nav 3</Link>
-          </Menu.Item> */}
-        </Menu>
-      </Sider>
+    <Layout
+      style={{ minHeight: "100vh", display: "flex", flexDirection: "row" }}
+    >
+      <Sidebar />
       <Layout>
-        <Header
-          style={{
-            padding: 0,
-            background: "dark",
-          }}
-        >
-          <Button
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
-            style={{
-              fontSize: "16px",
-              width: 64,
-              height: 64,
-              color: "white",
-            }}
-          />
-        </Header>
+        <HeaderApp />
         <Content
           style={{
             margin: "24px 16px",
@@ -76,8 +32,3 @@ const Dashboard = ({ children }) => {
 };
 
 export default Dashboard;
-
-{
-  /* <SiderBar />
-<AppBar />  */
-}
