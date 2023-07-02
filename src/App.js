@@ -1,10 +1,13 @@
 import "./App.css";
-import { DashboardRoutes } from "./Routes/dashboard";
+import { DashboardRoutes } from "./Routes/dashboard-routes";
+import Dashboard from "./components/dashboard";
 
 function App() {
   return (
     <>
-      <DashboardRoutes />
+      <Dashboard>
+        <DashboardRoutes />
+      </Dashboard>
     </>
   );
 }

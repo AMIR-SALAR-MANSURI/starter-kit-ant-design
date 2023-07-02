@@ -1,94 +1,83 @@
 import {
-  FileOutlined,
-  PieChartOutlined,
+  MenuFoldOutlined,
+  UploadOutlined,
   UserOutlined,
-  DesktopOutlined,
-  TeamOutlined,
+  VideoCameraOutlined,
+  MenuUnfoldOutlined,
 } from "@ant-design/icons";
-import { Breadcrumb, Layout, Menu, theme } from "antd";
+import { Button, Layout, Menu, theme } from "antd";
 import { useState } from "react";
-const { Header, Content, Footer, Sider } = Layout;
-function getItem(label, key, icon, children) {
-  return {
-    key,
-    icon,
-    children,
-    label,
-  };
-}
-const items = [
-  getItem("Option 1", "1", <PieChartOutlined />),
-  getItem("Option 2", "2", <DesktopOutlined />),
-  getItem("User", "sub1", <UserOutlined />, [
-    getItem("Tom", "3"),
-    getItem("Bill", "4"),
-    getItem("Alex", "5"),
-  ]),
-  getItem("Team", "sub2", <TeamOutlined />, [
-    getItem("Team 1", "6"),
-    getItem("Team 2", "8"),
-  ]),
-  getItem("Files", "9", <FileOutlined />),
-];
-const Dashboard = () => {
+import { Link } from "react-router-dom";
+
+const { Header, Sider, Content } = Layout;
+
+const Dashboard = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
   return (
-    <Layout
-      style={{
-        minHeight: "100vh",
-      }}
-    >
-      <Sider
-        collapsible
-        collapsed={collapsed}
-        onCollapse={(value) => setCollapsed(value)}
-      >
-        <div>test</div>
-        <Menu
-          theme="dark"
-          defaultSelectedKeys={["1"]}
-          mode="inline"
-          items={items}
-        />
+    <Layout style={{ minHeight: "100vh", display: "flex" }}>
+      <Sider trigger={null} collapsible collapsed={collapsed}>
+        <div
+          style={{
+            color: "white",
+            display: "flex",
+            justifyContent: "center",
+            marginTop: 50,
+          }}
+        ></div>
+        <div className="demo-logo-vertical" />
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
+          <Menu.Item key="2" icon={<VideoCameraOutlined />}>
+            <Link to="/">dashboard</Link>
+          </Menu.Item>
+          <Menu.Item key="1" icon={<UserOutlined />}>
+            <Link to="/create">ProcessCreate</Link>
+          </Menu.Item>
+          {/* <Menu.Item key="3" icon={<UploadOutlined />}>
+            <Link to="/route3">nav 3</Link>
+          </Menu.Item> */}
+        </Menu>
       </Sider>
       <Layout>
         <Header
           style={{
             padding: 0,
-            background: colorBgContainer,
-          }}
-        />
-        <Content
-          style={{
-            margin: "0 16px",
+            background: "dark",
           }}
         >
-          <Breadcrumb
+          <Button
+            type="text"
+            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+            onClick={() => setCollapsed(!collapsed)}
             style={{
-              margin: "16px 0",
+              fontSize: "16px",
+              width: 64,
+              height: 64,
+              color: "white",
             }}
-          >
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-          </Breadcrumb>
-          <div
-            style={{
-              padding: 24,
-              minHeight: 360,
-              background: colorBgContainer,
-            }}
-          ></div>
-        </Content>
-        <Footer
+          />
+        </Header>
+        <Content
           style={{
-            textAlign: "center",
+            margin: "24px 16px",
+            padding: 24,
+            minHeight: 280,
+            background: colorBgContainer,
           }}
-        ></Footer>
+        >
+          <div>{children}</div>
+        </Content>
       </Layout>
     </Layout>
   );
 };
+
 export default Dashboard;
+
+{
+  /* <SiderBar />
+<AppBar />  */
+}
