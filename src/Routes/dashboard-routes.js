@@ -1,9 +1,16 @@
 import { Routes, Route } from "react-router-dom";
-import ProcessCreate from "../pages/process-create";
+import ProcessCreate from "../pages/message-create";
+import DashboardGrid from "../components/dashboard-grid";
+import MessageCreate from "../pages/message-create";
+import MessageEdit from "../pages/message-edit";
+import MessageDelete from "../pages/messasge-delete";
 
 const routes = [
   // { headName: "home", path: "/", element: <Dashboard /> },
-  { headName: "create", path: "/create", element: <ProcessCreate /> },
+  { headName: "dashboard", path: "/", element: <DashboardGrid /> },
+  { headName: "create", path: "/create", element: <MessageCreate /> },
+  { headName: "edit", path: "/edit", element: <MessageEdit /> },
+  { headName: "delete", path: "/delete", element: <MessageDelete /> },
 ];
 
 export const DashboardRoutes = () => {
@@ -12,7 +19,6 @@ export const DashboardRoutes = () => {
       {routes.map((route) => (
         <>
           <Route element={route.element} path={route.path} />
-          <Route element={<ProcessCreate />} path="/create" />
         </>
       ))}
     </Routes>

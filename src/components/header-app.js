@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Layout } from "antd";
+import { Button } from "antd/lib";
+import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 
-export default function HeaderApp() {
+export default function HeaderApp({ collapsed, setCollapsed }) {
   const { Header } = Layout;
 
   return (
@@ -10,6 +12,18 @@ export default function HeaderApp() {
         padding: 0,
         background: "dark",
       }}
-    ></Header>
+    >
+      <Button
+        type="text"
+        icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+        onClick={() => setCollapsed(!collapsed)}
+        style={{
+          color: "white",
+          fontSize: "16px",
+          width: 64,
+          height: 64,
+        }}
+      />
+    </Header>
   );
 }

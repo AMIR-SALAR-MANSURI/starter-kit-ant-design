@@ -1,12 +1,18 @@
 import { Menu } from "antd/lib";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
+import {
+  UserOutlined,
+  VideoCameraOutlined,
+  UploadOutlined,
+  EditFilled,
+  DeleteFilled,
+} from "@ant-design/icons";
 import Sider from "antd/lib/layout/Sider";
 
-export default function Sidebar() {
+export default function Sidebar({ collapsed }) {
   return (
-    <Sider>
+    <Sider collapsed={collapsed}>
       <div
         style={{
           color: "white",
@@ -15,17 +21,20 @@ export default function Sidebar() {
           marginTop: 50,
         }}
       ></div>
-      <div className="demo-logo-vertical" />
+      <div className="demo-logo-vertical" />x
       <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-        <Menu.Item key="2" icon={<VideoCameraOutlined />}>
+        <Menu.Item key="1" icon={<VideoCameraOutlined />}>
           <Link to="/">dashboard</Link>
         </Menu.Item>
-        <Menu.Item key="1" icon={<UserOutlined />}>
-          <Link to="/create">ProcessCreate</Link>
+        <Menu.Item key="2" icon={<UserOutlined />}>
+          <Link to="/create">manage message</Link>
         </Menu.Item>
-        {/* <Menu.Item key="3" icon={<UploadOutlined />}>
-      <Link to="/route3">nav 3</Link>
-    </Menu.Item> */}
+        {/* <Menu.Item key="3" icon={<EditFilled />}>
+          <Link to="/edit">Edit</Link>
+        </Menu.Item> */}
+        {/* <Menu.Item key="4" icon={<DeleteFilled />}>
+          <Link to="/delete">Delete</Link>
+        </Menu.Item> */}
       </Menu>
     </Sider>
   );
