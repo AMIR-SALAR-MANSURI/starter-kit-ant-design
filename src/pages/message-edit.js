@@ -1,5 +1,10 @@
-import React from "react";
+import EditDomain from "./domain/edit-domain";
 
-export default function MessageEdit() {
-  return <div>MessageEdit</div>;
-}
+const MessageEdit = () => {
+  return (
+    <>
+      <EditDomain />
+    </>
+  );
+};
+export default MessageEdit;

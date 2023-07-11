@@ -1,9 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import ProcessCreate from "../pages/message-create";
-import DashboardGrid from "../components/dashboard-grid";
-import MessageCreate from "../pages/message-create";
+
 import MessageEdit from "../pages/message-edit";
-import MessageDelete from "../pages/messasge-delete";
+import MessageCreate from "../pages/message-create";
+import MessageDelete from "../pages/message-delete";
+
+import DashboardGrid from "../components/dashboard-grid";
+import DomainList from "../pages/domain/domain-list";
 
 const routes = [
   // { headName: "home", path: "/", element: <Dashboard /> },
@@ -11,6 +13,7 @@ const routes = [
   { headName: "create", path: "/create", element: <MessageCreate /> },
   { headName: "edit", path: "/edit", element: <MessageEdit /> },
   { headName: "delete", path: "/delete", element: <MessageDelete /> },
+  { headName: "domainlist", path: "/domainlist", element: <DomainList /> },
 ];
 
 export const DashboardRoutes = () => {

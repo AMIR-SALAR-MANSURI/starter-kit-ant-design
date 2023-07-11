@@ -3,6 +3,7 @@ import { Badge, Dropdown, Space, Table } from "antd";
 import { Button } from "antd/lib";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { DownloadOutlined, DeleteFilled, EditFilled } from "@ant-design/icons";
 const items = [
   {
     key: "1",
@@ -13,22 +14,22 @@ const items = [
     label: "Action 2",
   },
 ];
-const MessageCreate = () => {
+const TableDomain = () => {
   const expandedRowRender = () => {
     const columns = [
       {
-        title: "Name",
+        title: "متن قالب",
         dataIndex: "name",
         key: "name",
       },
       {
-        title: "address",
+        title: "عنوان قالب",
         dataIndex: "address",
         key: "address",
       },
 
       {
-        title: "description",
+        title: "گروه قالب",
         dataIndex: "description",
         key: "description",
       },
@@ -88,7 +89,35 @@ const MessageCreate = () => {
     {
       title: "Action",
       key: "operation",
-      render: () => <a>Publish</a>,
+      render: () => (
+        <>
+          <div>
+            <Button
+              style={{ marginRight: 5 }}
+              type="primary"
+              shape="round"
+              icon={<DownloadOutlined />}
+              size={size}
+            ></Button>
+            <Button
+              style={{ marginRight: 10 }}
+              type="primary"
+              shape="round"
+              icon={<DeleteFilled />}
+              size={size}
+            ></Button>
+            <Link to={"/edit"}>
+              <Button
+                style={{ marginRight: 10 }}
+                type="primary"
+                shape="round"
+                icon={<EditFilled />}
+                size={size}
+              ></Button>
+            </Link>
+          </div>
+        </>
+      ),
     },
   ];
   const data = [];
@@ -106,17 +135,6 @@ const MessageCreate = () => {
   const [size, setSize] = useState("large");
   return (
     <>
-      <div style={{ display: "flex", direction: "ltr" }}>
-        <Link to={"/edit"}>
-          <Button
-            style={{ display: "flex", justifyContent: "right" }}
-            type="primary"
-            size={size}
-          >
-            Create
-          </Button>
-        </Link>
-      </div>
       <Table
         style={{ marginTop: 80 }}
         columns={columns}
@@ -129,4 +147,4 @@ const MessageCreate = () => {
     </>
   );
 };
-export default MessageCreate;
+export default TableDomain;

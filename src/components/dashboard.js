@@ -2,7 +2,7 @@ import { Layout, theme } from "antd";
 import Sidebar from "./sidebar";
 import HeaderApp from "./header-app";
 import { useState } from "react";
-import DashboardGrid from "./dashboard-grid";
+// import DashboardGrid from "./dashboard-grid";
 
 const { Content } = Layout;
 
