@@ -1,17 +1,17 @@
 import React from "react";
 import { Button, Form, Input } from "antd";
-import { DatePicker, Space } from "antd";
-import { Group } from "antd/lib/avatar";
-import GroupList from "../group/group-list";
+import { PlusOutlined } from "@ant-design/icons";
+
 import { EditFilled } from "@ant-design/icons";
-export default function EditDomain() {
+import { Link } from "react-router-dom";
+export default function EditGroup() {
   const handleSubmit = (values) => {
     console.log(values);
   };
   return (
     <>
       <div>
-        <h2 style={{ color: "blue " }}> ویرایش دامنه...</h2>
+        <h2 style={{ color: "blue " }}> ویرایش گروه...</h2>
       </div>
       <div>
         <Form
@@ -43,7 +43,7 @@ export default function EditDomain() {
               <Form.Item
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
-                label="اسم دامنه"
+                label=" دامنه url"
                 style={{ width: "49%" }}
                 name="username"
                 rules={[
@@ -51,6 +51,7 @@ export default function EditDomain() {
                     required: true,
                     message: "لطفا اسم دامنه را وارد کنید",
                   },
+                  { type: "url", message: "آدرس وارد شده صحیح نیست  " },
                   {
                     whitespace: true,
                     message: "اسم دامنه نمی تواند خالی باشد",
@@ -61,32 +62,6 @@ export default function EditDomain() {
                 <Input style={{ height: 50 }} />
               </Form.Item>
 
-              <Form.Item
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
-                label="url"
-                style={{ width: "49%" }}
-                name="password"
-                rules={[
-                  {
-                    required: true,
-                    message: "لطفا url را وارد کنید",
-                  },
-                  { type: "url", message: "آدرس وارد شده صحیح نیست  " },
-                  { whitespace: true, message: "url نمی تواند خالی باشد" },
-                ]}
-                hasFeedback
-              >
-                <Input style={{ height: 50 }} />
-              </Form.Item>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                marginBottom: 23,
-              }}
-            >
               <Form.Item
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
@@ -104,7 +79,36 @@ export default function EditDomain() {
               >
                 <Input style={{ height: 50 }} />
               </Form.Item>
-              <Form.Item style={{ direction: "ltr", marginTop: 40 }} label=" ">
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: 23,
+              }}
+            >
+              <Form.Item
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                label="نام گروه بندی"
+                style={{ width: "49%" }}
+                name="password"
+                rules={[
+                  {
+                    required: true,
+                    message: "لطفا نام گروه را وراد کنید",
+                  },
+
+                  { whitespace: true, message: "لطفا نام گروه را وراد کنید " },
+                ]}
+                hasFeedback
+              >
+                <Input style={{ height: 50 }} />
+              </Form.Item>
+              <Form.Item
+                style={{ direction: "ltr", marginTop: 40, display: "flex" }}
+                label=" "
+              >
                 <Button type="primary" htmlType="submit" icon={<EditFilled />}>
                   ویرایش
                 </Button>
@@ -112,9 +116,6 @@ export default function EditDomain() {
             </div>
           </div>
         </Form>
-      </div>
-      <div>
-        <GroupList />
       </div>
     </>
   );

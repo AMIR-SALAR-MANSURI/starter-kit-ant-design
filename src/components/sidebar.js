@@ -29,14 +29,14 @@ export default function Sidebar({ collapsed }) {
         <Menu.Item key="2" icon={<UserOutlined />}>
           <Link to="/create">domain</Link>
         </Menu.Item>
-        <Menu.Item key="3" icon={<EditFilled />}>
+        {/* <Menu.Item key="3" icon={<EditFilled />}>
           <Link to="/edit">Edit</Link>
         </Menu.Item>
         <Menu.Item key="4" icon={<DeleteFilled />}>
           <Link to="/delete">Delete</Link>
-        </Menu.Item>
+        </Menu.Item> */}
         <Menu.Item key="5" icon={<DeleteFilled />}>
-          <Link to="/domainlist">domainlist</Link>
+          <Link to="/group">group</Link>
         </Menu.Item>
       </Menu>
     </Sider>

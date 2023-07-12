@@ -5,7 +5,10 @@ import MessageCreate from "../pages/message-create";
 import MessageDelete from "../pages/message-delete";
 
 import DashboardGrid from "../components/dashboard-grid";
-import DomainList from "../pages/domain/domain-list";
+
+import CreateGroup from "../pages/group/create-group";
+import EditGroup from "../pages/group/edit-group";
+import Group from "../pages/group/group";
 
 const routes = [
   // { headName: "home", path: "/", element: <Dashboard /> },
@@ -13,7 +16,21 @@ const routes = [
   { headName: "create", path: "/create", element: <MessageCreate /> },
   { headName: "edit", path: "/edit", element: <MessageEdit /> },
   { headName: "delete", path: "/delete", element: <MessageDelete /> },
-  { headName: "domainlist", path: "/domainlist", element: <DomainList /> },
+  {
+    headName: "group",
+    path: "/group",
+    element: <Group />,
+  },
+  {
+    headName: "creategroup",
+    path: "/creategroup",
+    element: <CreateGroup />,
+  },
+  {
+    headName: "editgroup",
+    path: "/editgroup",
+    element: <EditGroup />,
+  },
 ];
 
 export const DashboardRoutes = () => {

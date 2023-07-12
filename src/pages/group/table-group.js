@@ -1,9 +1,8 @@
-import { DownOutlined, FileAddOutlined, PlusOutlined } from "@ant-design/icons";
-import { Badge, Dropdown, Space, Table } from "antd";
-import { Button } from "antd/lib";
-import { useState } from "react";
+import { DeleteFilled, EditFilled, PlusOutlined } from "@ant-design/icons";
+import { Button, Table } from "antd/lib";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { DownloadOutlined, DeleteFilled, EditFilled } from "@ant-design/icons";
+
 const items = [
   {
     key: "1",
@@ -14,22 +13,22 @@ const items = [
     label: "Action 2",
   },
 ];
-export default function TableDomain() {
+export default function TableGroup() {
   const expandedRowRender = () => {
     const columns = [
       {
-        title: "دامنه url",
+        title: "متن قالب ",
         dataIndex: "name",
         key: "name",
       },
       {
-        title: "نام گروه بندی",
+        title: "عنوان قالب",
         dataIndex: "address",
         key: "address",
       },
 
       {
-        title: " توضیحات",
+        title: " گروه قالب",
         dataIndex: "description",
         key: "description",
       },
@@ -70,13 +69,13 @@ export default function TableDomain() {
   };
   const columns = [
     {
-      title: "اسم دامنه  ",
+      title: "دامنه url ",
       dataIndex: "name",
       key: "name",
     },
 
     {
-      title: " url",
+      title: " نام گروه بندی",
       dataIndex: "upgradeNum",
       key: "upgradeNum",
     },
@@ -86,32 +85,14 @@ export default function TableDomain() {
       dataIndex: "createdAt",
       key: "createdAt",
     },
-    {
-      title: "تاریخ ساخت ",
-      dataIndex: "date",
-      key: "date",
-    },
+
     {
       title: "Action",
       key: "operation",
       render: () => (
         <>
           <div>
-            <Button
-              style={{ marginRight: 10 }}
-              type="primary"
-              shape="round"
-              icon={<PlusOutlined />}
-              size={size}
-            ></Button>
-            <Button
-              style={{ marginRight: 10 }}
-              type="primary"
-              shape="round"
-              icon={<DeleteFilled />}
-              size={size}
-            ></Button>
-            <Link to={"/edit"}>
+            <Link to={"/editgroup"}>
               <Button
                 style={{ marginRight: 10 }}
                 type="primary"
@@ -120,6 +101,13 @@ export default function TableDomain() {
                 size={size}
               ></Button>
             </Link>
+            <Button
+              style={{ marginRight: 10 }}
+              type="primary"
+              shape="round"
+              icon={<DeleteFilled />}
+              size={size}
+            ></Button>
           </div>
         </>
       ),
@@ -140,15 +128,30 @@ export default function TableDomain() {
   const [size, setSize] = useState("large");
   return (
     <>
-      <Table
-        style={{ marginTop: 80 }}
-        columns={columns}
-        expandable={{
-          expandedRowRender,
-          defaultExpandedRowKeys: ["0"],
-        }}
-        dataSource={data}
-      />
+      <div style={{ display: "flex", direction: "ltr" }}>
+        <Link to={"/creategroup"}>
+          <Button
+            style={{ marginRight: 10 }}
+            type="primary"
+            shape="round"
+            icon={<PlusOutlined />}
+            size={size}
+          >
+            ایجاد
+          </Button>
+        </Link>
+      </div>
+      <div>
+        <Table
+          style={{ marginTop: 50 }}
+          columns={columns}
+          expandable={{
+            expandedRowRender,
+            defaultExpandedRowKeys: ["0"],
+          }}
+          dataSource={data}
+        />
+      </div>
     </>
   );
 }

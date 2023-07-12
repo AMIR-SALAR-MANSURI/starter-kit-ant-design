@@ -1,17 +1,17 @@
 import React from "react";
+
 import { Button, Form, Input } from "antd";
-import { DatePicker, Space } from "antd";
-import { Group } from "antd/lib/avatar";
-import GroupList from "../group/group-list";
-import { EditFilled } from "@ant-design/icons";
-export default function EditDomain() {
+import { PlusOutlined } from "@ant-design/icons";
+
+export default function CreateGroup() {
   const handleSubmit = (values) => {
     console.log(values);
   };
+
   return (
     <>
       <div>
-        <h2 style={{ color: "blue " }}> ویرایش دامنه...</h2>
+        <h2 style={{ color: "blue " }}> ایجاد گروه...</h2>
       </div>
       <div>
         <Form
@@ -43,7 +43,7 @@ export default function EditDomain() {
               <Form.Item
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
-                label="اسم دامنه"
+                label=" دامنه url"
                 style={{ width: "49%" }}
                 name="username"
                 rules={[
@@ -51,6 +51,7 @@ export default function EditDomain() {
                     required: true,
                     message: "لطفا اسم دامنه را وارد کنید",
                   },
+                  { type: "url", message: "آدرس وارد شده صحیح نیست  " },
                   {
                     whitespace: true,
                     message: "اسم دامنه نمی تواند خالی باشد",
@@ -64,16 +65,16 @@ export default function EditDomain() {
               <Form.Item
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
-                label="url"
+                label="توضیحات"
                 style={{ width: "49%" }}
-                name="password"
+                name="description"
                 rules={[
                   {
                     required: true,
-                    message: "لطفا url را وارد کنید",
+                    message: "لطفا توضیحات را وارد کنید ",
                   },
-                  { type: "url", message: "آدرس وارد شده صحیح نیست  " },
-                  { whitespace: true, message: "url نمی تواند خالی باشد" },
+
+                  { whitespace: true, message: "توضیحات  نمی تواند خالی باشد" },
                 ]}
                 hasFeedback
               >
@@ -90,31 +91,32 @@ export default function EditDomain() {
               <Form.Item
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
-                label="توضیحات"
+                label="نام گروه بندی"
                 style={{ width: "49%" }}
-                name="description"
+                name="password"
                 rules={[
                   {
                     required: true,
-                    message: "لطفا توضیحات را وارد کنید ",
+                    message: "لطفا url را وارد کنید",
                   },
-                  { whitespace: true, message: "توضیحات  نمی تواند خالی باشد" },
+                  { whitespace: true, message: "url نمی تواند خالی باشد" },
                 ]}
                 hasFeedback
               >
                 <Input style={{ height: 50 }} />
               </Form.Item>
               <Form.Item style={{ direction: "ltr", marginTop: 40 }} label=" ">
-                <Button type="primary" htmlType="submit" icon={<EditFilled />}>
-                  ویرایش
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  icon={<PlusOutlined />}
+                >
+                  ایجاد
                 </Button>
               </Form.Item>
             </div>
           </div>
         </Form>
-      </div>
-      <div>
-        <GroupList />
       </div>
     </>
   );
