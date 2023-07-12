@@ -1,6 +1,12 @@
-import { DeleteFilled, DownloadOutlined, EditFilled } from "@ant-design/icons";
+import {
+  DeleteFilled,
+  DownloadOutlined,
+  EditFilled,
+  PlusOutlined,
+} from "@ant-design/icons";
 import { Space, Table, Tag } from "antd";
 import { Button } from "antd/lib";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 const { Column } = Table;
 const data = [
@@ -26,42 +32,52 @@ const data = [
     address: "Sydney No. 1 Lake Park",
   },
 ];
-const GroupList = () => (
-  <Table dataSource={data} style={{ marginTop: 100 }}>
-    <Column title="دامنه url" dataIndex="firstName " key="firstName" />
-    <Column title="توضیحات" dataIndex="lastName" key="lastName" />
-    <Column title="نام گروه بندی" dataIndex="address " key="address " />
+export default function GroupList() {
+  const [size, setSize] = useState("large");
+  return (
+    <>
+      <Table dataSource={data} style={{ marginTop: 100 }}>
+        <Column title="دامنه url" dataIndex="firstName " key="firstName" />
+        <Column title="توضیحات" dataIndex="lastName" key="lastName" />
+        <Column title="نام گروه بندی" dataIndex="address " key="address " />
 
-    <Column
-      title="عملیات"
-      key="عملیات"
-      render={() => (
-        <>
-          <div>
-            <Button
-              style={{ marginRight: 5 }}
-              type="primary"
-              shape="round"
-              icon={<DownloadOutlined />}
-            ></Button>
-            <Button
-              style={{ marginRight: 10 }}
-              type="primary"
-              shape="round"
-              icon={<DeleteFilled />}
-            ></Button>
-            {/* <Link to={"/edit"}> */}
-            <Button
-              style={{ marginRight: 10 }}
-              type="primary"
-              shape="round"
-              icon={<EditFilled />}
-            ></Button>
-            {/* </Link> */}
-          </div>
-        </>
-      )}
-    />
-  </Table>
-);
-export default GroupList;
+        <Column
+          title="عملیات"
+          key="عملیات"
+          render={() => (
+            <>
+              <div>
+                <Link to={"/creategroup"}>
+                  <Button
+                    style={{ marginRight: 5 }}
+                    type="primary"
+                    shape="round"
+                    icon={<EditFilled />}
+                    size={size}
+                  ></Button>
+                </Link>
+                <Button
+                  style={{ marginRight: 10 }}
+                  type="primary"
+                  shape="round"
+                  icon={<DeleteFilled />}
+                  size={size}
+                ></Button>
+
+                <Link to={"/editgroup"}>
+                  <Button
+                    style={{ marginRight: 10 }}
+                    type="primary"
+                    shape="round"
+                    icon={<EditFilled />}
+                    size={size}
+                  ></Button>
+                </Link>
+              </div>
+            </>
+          )}
+        />
+      </Table>
+    </>
+  );
+}
