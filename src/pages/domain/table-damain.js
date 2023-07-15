@@ -71,39 +71,39 @@ export default function TableDomain() {
   const columns = [
     {
       title: "اسم دامنه  ",
-      dataIndex: "name",
+      dataIndex: "domain",
       key: "name",
     },
 
     {
       title: " url",
-      dataIndex: "upgradeNum",
+      dataIndex: "url",
       key: "upgradeNum",
     },
 
     {
       title: "توضیحات ",
-      dataIndex: "createdAt",
-      key: "createdAt",
+      dataIndex: "description",
+      key: "description",
     },
+    // {
+    //   title: "تاریخ ساخت ",
+    //   dataIndex: "date",
+    //   key: "date",
+    // },
     {
-      title: "تاریخ ساخت ",
-      dataIndex: "date",
-      key: "date",
-    },
-    {
-      title: "Action",
+      title: "عملیات",
       key: "operation",
       render: () => (
         <>
           <div>
-            <Button
+            {/* <Button
               style={{ marginRight: 10 }}
               type="primary"
               shape="round"
               icon={<PlusOutlined />}
               size={size}
-            ></Button>
+            ></Button> */}
             <Button
               style={{ marginRight: 10 }}
               type="primary"
@@ -129,26 +129,45 @@ export default function TableDomain() {
   for (let i = 0; i < 5; ++i) {
     data.push({
       key: i.toString(),
-      name: "Screen",
-      platform: "iOS",
-      version: "10.3.4.5654",
-      upgradeNum: 500,
-      creator: "Jack",
-      createdAt: "2014-12-24 23:12:00",
+      domain: "domain",
+      url: "http://localhost:3000/domain",
+      description: "ساخت دامنه جدید",
+      // name: "Screen",
+      // platform: "iOS",
+      // version: "10.3.4.5654",
+      // upgradeNum: 500,
+      // creator: "Jack",
+      // createdAt: "2014-12-24 23:12:00",
     });
   }
   const [size, setSize] = useState("large");
   return (
     <>
-      <Table
-        style={{ marginTop: 80 }}
-        columns={columns}
-        expandable={{
-          expandedRowRender,
-          defaultExpandedRowKeys: ["0"],
-        }}
-        dataSource={data}
-      />
+      <div>
+        <div style={{ display: "flex", direction: "ltr" }}>
+          <Link to={"/create"}>
+            <Button
+              style={{ marginRight: 10 }}
+              type="primary"
+              shape="round"
+              icon={<PlusOutlined />}
+              size={size}
+            >
+              ایجاد
+            </Button>
+          </Link>
+        </div>
+        <Table
+          style={{ marginTop: 80 }}
+          columns={columns}
+          expandable={{
+            expandedRowRender,
+            defaultExpandedRowKeys: ["0"],
+          }}
+          dataSource={data}
+        />
+        \
+      </div>
     </>
   );
 }

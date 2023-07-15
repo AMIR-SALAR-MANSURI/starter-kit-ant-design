@@ -9,11 +9,14 @@ import DashboardGrid from "../components/dashboard-grid";
 import CreateGroup from "../pages/group/create-group";
 import EditGroup from "../pages/group/edit-group";
 import Group from "../pages/group/group";
+import Domain from "../pages/domain/domain";
+import CreateDomain from "../pages/domain/create-domain";
 
 const routes = [
   // { headName: "home", path: "/", element: <Dashboard /> },
   { headName: "dashboard", path: "/", element: <DashboardGrid /> },
-  { headName: "create", path: "/create", element: <MessageCreate /> },
+  { headName: "domain", path: "/domain", element: <Domain /> },
+  { headName: "create", path: "/create", element: <CreateDomain /> },
   { headName: "edit", path: "/edit", element: <MessageEdit /> },
   { headName: "delete", path: "/delete", element: <MessageDelete /> },
   {

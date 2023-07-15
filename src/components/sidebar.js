@@ -27,7 +27,7 @@ export default function Sidebar({ collapsed }) {
           <Link to="/">dashboard</Link>
         </Menu.Item>
         <Menu.Item key="2" icon={<UserOutlined />}>
-          <Link to="/create">domain</Link>
+          <Link to="/domain">domain</Link>
         </Menu.Item>
         {/* <Menu.Item key="3" icon={<EditFilled />}>
           <Link to="/edit">Edit</Link>

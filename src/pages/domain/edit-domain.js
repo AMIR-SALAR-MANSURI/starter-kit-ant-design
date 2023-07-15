@@ -4,7 +4,9 @@ import { DatePicker, Space } from "antd";
 import { Group } from "antd/lib/avatar";
 import GroupList from "../group/group-list";
 import { EditFilled } from "@ant-design/icons";
+import { useState } from "react";
 export default function EditDomain() {
+  const [size, setSize] = useState("large");
   const handleSubmit = (values) => {
     console.log(values);
   };
@@ -105,7 +107,13 @@ export default function EditDomain() {
                 <Input style={{ height: 50 }} />
               </Form.Item>
               <Form.Item style={{ direction: "ltr", marginTop: 40 }} label=" ">
-                <Button type="primary" htmlType="submit" icon={<EditFilled />}>
+                <Button
+                  style={{ marginRight: 10 }}
+                  type="primary"
+                  shape="round"
+                  icon={<EditFilled />}
+                  size={size}
+                >
                   ویرایش
                 </Button>
               </Form.Item>

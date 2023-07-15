@@ -4,7 +4,9 @@ import { PlusOutlined } from "@ant-design/icons";
 
 import { EditFilled } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 export default function EditGroup() {
+  const [size, setSize] = useState("large");
   const handleSubmit = (values) => {
     console.log(values);
   };
@@ -109,7 +111,13 @@ export default function EditGroup() {
                 style={{ direction: "ltr", marginTop: 40, display: "flex" }}
                 label=" "
               >
-                <Button type="primary" htmlType="submit" icon={<EditFilled />}>
+                <Button
+                  style={{ marginRight: 10 }}
+                  type="primary"
+                  shape="round"
+                  icon={<EditFilled />}
+                  size={size}
+                >
                   ویرایش
                 </Button>
               </Form.Item>

@@ -12,72 +12,89 @@ const { Column } = Table;
 const data = [
   {
     key: "1",
-    firstName: "John",
-    lastName: "Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
+    urldomain: "http://localhost:3000/domain",
+    description: "گروه جدید",
+    groupname: "گروه اول  ", // firstName: "John",
+    // lastName: "Brown",
+    // age: 32,
+    // address: "New York No. 1 Lake Park",
+    dataIndex: "urldomain",
   },
   {
     key: "2",
-    firstName: "Jim",
-    lastName: "Green",
-    age: 42,
-    address: "London No. 1 Lake Park",
+    urldomain: "http://localhost:3000/domain",
+    description: "گروه جدید",
+    groupname: "گروه اول  ",
+    // firstName: "Jim",
+    // lastName: "Green",
+    // age: 42,
+    // address: "London No. 1 Lake Park",
+    dataIndex: "description",
   },
   {
     key: "3",
-    firstName: "Joe",
-    lastName: "Black",
-    age: 32,
-    address: "Sydney No. 1 Lake Park",
+    urldomain: "http://localhost:3000/domain",
+    description: "گروه جدید",
+    groupname: "گروه اول  ",
+    // firstName: "Joe",
+    // lastName: "Black",
+    // age: 32,
+    // address: "Sydney No. 1 Lake Park",
+    dataIndex: "groupname",
   },
 ];
 export default function GroupList() {
   const [size, setSize] = useState("large");
   return (
     <>
-      <Table dataSource={data} style={{ marginTop: 100 }}>
-        <Column title="دامنه url" dataIndex="firstName " key="firstName" />
-        <Column title="توضیحات" dataIndex="lastName" key="lastName" />
-        <Column title="نام گروه بندی" dataIndex="address " key="address " />
+      <div style={{ display: "flex", direction: "ltr" }}>
+        <Link to={"/creategroup"}>
+          <Button
+            style={{ marginRight: 5, marginTop: 50 }}
+            type="primary"
+            shape="round"
+            icon={<PlusOutlined />}
+            size={size}
+          >
+            ایجاد
+          </Button>
+        </Link>
+      </div>
+      <div>
+        <Table dataSource={data} style={{ marginTop: 60 }}>
+          <Column title="دامنه url" dataIndex="urldomain" key="firstName" />
+          <Column title="توضیحات" dataIndex="description" key="lastName" />
+          <Column title="نام گروه بندی" dataIndex="groupname" key="address " />
 
-        <Column
-          title="عملیات"
-          key="عملیات"
-          render={() => (
-            <>
-              <div>
-                <Link to={"/creategroup"}>
-                  <Button
-                    style={{ marginRight: 5 }}
-                    type="primary"
-                    shape="round"
-                    icon={<EditFilled />}
-                    size={size}
-                  ></Button>
-                </Link>
-                <Button
-                  style={{ marginRight: 10 }}
-                  type="primary"
-                  shape="round"
-                  icon={<DeleteFilled />}
-                  size={size}
-                ></Button>
-
-                <Link to={"/editgroup"}>
+          <Column
+            title="عملیات"
+            key="عملیات"
+            render={() => (
+              <>
+                <div>
                   <Button
                     style={{ marginRight: 10 }}
                     type="primary"
                     shape="round"
-                    icon={<EditFilled />}
+                    icon={<DeleteFilled />}
                     size={size}
                   ></Button>
-                </Link>
-              </div>
-            </>
-          )}
-        />
-      </Table>
+
+                  <Link to={"/editgroup"}>
+                    <Button
+                      style={{ marginRight: 10 }}
+                      type="primary"
+                      shape="round"
+                      icon={<EditFilled />}
+                      size={size}
+                    ></Button>
+                  </Link>
+                </div>
+              </>
+            )}
+          />
+        </Table>
+      </div>
     </>
   );
 }

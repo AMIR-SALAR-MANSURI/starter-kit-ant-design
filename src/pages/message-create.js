@@ -1,10 +1,6 @@
 import TableDomain from "./domain/table-damain";
 
 const MessageCreate = () => {
-  return (
-    <>
-      <TableDomain />
-    </>
-  );
+  return <></>;
 };
 export default MessageCreate;
