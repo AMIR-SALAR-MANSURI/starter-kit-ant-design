@@ -1,7 +1,14 @@
-import { DeleteFilled, EditFilled, PlusOutlined } from "@ant-design/icons";
+import {
+  DeleteFilled,
+  EditFilled,
+  DownloadOutlined,
+  PlusOutlined,
+  DownOutlined,
+} from "@ant-design/icons";
 import { Button, Table } from "antd/lib";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Badge, Dropdown, Space } from "antd";
 
 const items = [
   {
@@ -18,48 +25,67 @@ export default function TableGroup() {
     const columns = [
       {
         title: "متن قالب ",
-        dataIndex: "name",
+        dataIndex: "template",
         key: "name",
       },
       {
         title: "عنوان قالب",
-        dataIndex: "address",
+        dataIndex: "templatelable",
         key: "address",
       },
 
       {
         title: " گروه قالب",
-        dataIndex: "description",
+        dataIndex: "templategroup",
         key: "description",
       },
 
-      // {
-      //   title: "Action",
-      //   dataIndex: "operation",
-      //   key: "operation",
-      //   render: () => (
-      //     <Space size="middle">
-      //       <a>Pause</a>
-      //       <a>Stop</a>
-      //       <Dropdown
-      //         menu={{
-      //           items,
-      //         }}
-      //       >
-      //         <a>
-      //           More <DownOutlined />
-      //         </a>
-      //       </Dropdown>
-      //     </Space>
-      //   ),
-      // },
+      {
+        title: "Action",
+        dataIndex: "operation",
+        key: "operation",
+        render: () => (
+          <>
+            <div>
+              <Link to={"/createtemplate"}>
+                <Button
+                  style={{ marginRight: 10 }}
+                  type="primary"
+                  shape="round"
+                  icon={<PlusOutlined />}
+                  size={size}
+                >
+                  ایجاد
+                </Button>
+              </Link>
+              <Link to={"/edittemplate"}>
+                <Button
+                  style={{ marginRight: 10 }}
+                  type="primary"
+                  shape="round"
+                  icon={<EditFilled />}
+                  size={size}
+                ></Button>
+              </Link>
+
+              <Button
+                style={{ marginRight: 10 }}
+                type="primary"
+                shape="round"
+                icon={<DeleteFilled />}
+                size={size}
+              ></Button>
+            </div>
+          </>
+        ),
+      },
     ];
     const data = [
       {
         key: toString(),
-        name: " گروه1",
-        address: " googel.com",
-        description: "توضیحات اولیه",
+        template: "قالب اولیه",
+        templatelable: "قالب نوع دو",
+        templategroup: "گروه قالب",
       },
     ];
     for (let i = 0; i < 3; ++i) {
@@ -70,24 +96,24 @@ export default function TableGroup() {
   const columns = [
     {
       title: "دامنه url ",
-      dataIndex: "name",
+      dataIndex: "url",
       key: "name",
     },
 
     {
       title: " نام گروه بندی",
-      dataIndex: "upgradeNum",
+      dataIndex: "groupname",
       key: "upgradeNum",
     },
 
     {
       title: "توضیحات ",
-      dataIndex: "createdAt",
-      key: "createdAt",
+      dataIndex: "description",
+      key: "description",
     },
 
     {
-      title: "Action",
+      title: "عملیات",
       key: "operation",
       render: () => (
         <>
@@ -117,12 +143,16 @@ export default function TableGroup() {
   for (let i = 0; i < 5; ++i) {
     data.push({
       key: i.toString(),
-      name: "Screen",
-      platform: "iOS",
-      version: "10.3.4.5654",
-      upgradeNum: 500,
-      creator: "Jack",
-      createdAt: "2014-12-24 23:12:00",
+      url: "http://localhost:3000/domain",
+      groupname: "گروه اول",
+      description: "توضیحات...",
+
+      // name: "Screen",
+      // platform: "iOS",
+      // version: "10.3.4.5654",
+      // upgradeNum: 500,
+      // creator: "Jack",
+      // createdAt: "2014-12-24 23:12:00",
     });
   }
   const [size, setSize] = useState("large");
@@ -143,7 +173,7 @@ export default function TableGroup() {
       </div>
       <div>
         <Table
-          style={{ marginTop: 50 }}
+          style={{ marginTop: 50, borderRadius: "10px" }}
           columns={columns}
           expandable={{
             expandedRowRender,

@@ -1,11 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form, Input } from "antd";
-import { PlusOutlined } from "@ant-design/icons";
-
 import { EditFilled } from "@ant-design/icons";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-export default function EditGroup() {
+export default function EditTemplate() {
   const [size, setSize] = useState("large");
   const handleSubmit = (values) => {
     console.log(values);
@@ -13,7 +9,7 @@ export default function EditGroup() {
   return (
     <>
       <div>
-        <h2 style={{ color: "blue " }}> ویرایش گروه...</h2>
+        <h2 style={{ color: "blue " }}> </h2>
       </div>
       <div>
         <Form
@@ -45,18 +41,17 @@ export default function EditGroup() {
               <Form.Item
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
-                label=" دامنه url"
+                label="متن قالب"
                 style={{ width: "49%" }}
                 name="username"
                 rules={[
                   {
                     required: true,
-                    message: "لطفا اسم دامنه را وارد کنید",
+                    message: "لطفا اسم قالب  را وارد کنید",
                   },
-                  { type: "url", message: "آدرس وارد شده صحیح نیست  " },
                   {
                     whitespace: true,
-                    message: "اسم دامنه نمی تواند خالی باشد",
+                    message: "اسم قالب نمی تواند خالی باشد",
                   },
                 ]}
                 hasFeedback
@@ -67,50 +62,54 @@ export default function EditGroup() {
               <Form.Item
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
-                label="توضیحات"
+                label="عنوان قالب"
                 style={{ width: "49%" }}
-                name="description"
+                name="password"
                 rules={[
                   {
                     required: true,
-                    message: "لطفا توضیحات را وارد کنید ",
+                    message: "لطفا عنوان قالب  را وارد کنید",
                   },
-                  { whitespace: true, message: "توضیحات  نمی تواند خالی باشد" },
+
+                  {
+                    whitespace: true,
+                    message: " عنوان قالب نمی تواند خالی باشد",
+                  },
                 ]}
                 hasFeedback
               >
                 <Input style={{ height: 50 }} />
               </Form.Item>
             </div>
+            <Form.Item
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 24 }}
+              label=" کروه قالب"
+              style={{ width: "49%" }}
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: "لطفا گروه قالب  را وارد کنید",
+                },
+
+                {
+                  whitespace: true,
+                  message: " عنوان گروه نمی تواند خالی باشد",
+                },
+              ]}
+              hasFeedback
+            >
+              <Input style={{ height: 50 }} />
+            </Form.Item>
             <div
               style={{
+                direction: "ltr",
                 display: "flex",
                 justifyContent: "space-between",
-                marginBottom: 23,
-              }}
+               }}
             >
-              <Form.Item
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
-                label="نام گروه بندی"
-                style={{ width: "49%" }}
-                name="password"
-                rules={[
-                  {
-                    required: true,
-                    message: "لطفا نام گروه را وراد کنید",
-                  },
-
-                  { whitespace: true, message: "نام گروه نمی تواند خالی باشد" },
-                ]}
-                hasFeedback
-              >
-                <Input style={{ height: 50 }} />
-              </Form.Item>
-              <Form.Item
-                style={{ direction: "ltr", marginTop: 40, display: "flex" }}
-                label=" "
-              >
+              <Form.Item style={{ direction: "ltr" }} label=" ">
                 <Button
                   style={{ marginRight: 10 }}
                   type="primary"

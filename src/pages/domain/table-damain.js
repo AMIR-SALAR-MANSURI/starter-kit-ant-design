@@ -166,7 +166,6 @@ export default function TableDomain() {
           }}
           dataSource={data}
         />
-        \
       </div>
     </>
   );

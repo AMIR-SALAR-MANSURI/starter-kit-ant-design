@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form, Input } from "antd";
 import { DatePicker, Space } from "antd";
 import { Group } from "antd/lib/avatar";
 import GroupList from "../group/group-list";
 import { EditFilled } from "@ant-design/icons";
-import { useState } from "react";
 export default function EditDomain() {
   const [size, setSize] = useState("large");
   const handleSubmit = (values) => {
@@ -111,6 +110,7 @@ export default function EditDomain() {
                   style={{ marginRight: 10 }}
                   type="primary"
                   shape="round"
+                  htmlType="submit"
                   icon={<EditFilled />}
                   size={size}
                 >
